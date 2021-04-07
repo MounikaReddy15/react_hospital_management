@@ -20,24 +20,12 @@ export default function auth(state = initialAuthState, action) {
         ...state,
         error: null,
       };
-    case LOGIN_START:
-      return {
-        ...state,
-        inProgress: true,
-      };
     case LOGIN_SUCCESS:
+      // localStorage.setItem("document", JSON.stringify((isLoggedin: "true")));
       return {
         ...state,
         user: action.user,
         isLoggedin: true,
-        inProgress: false,
-        error: null,
-      };
-    case LOGIN_FAIL:
-      return {
-        ...state,
-        inProgress: false,
-        error: action.error,
       };
     case LOG_OUT:
       return {

@@ -1,6 +1,9 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Input, Button } from "antd";
 import { UserOutlined } from "@ant-design/icons";
+import { clearAuthState, login } from "../actions/auth";
+import { Link } from "react-router-dom";
 
 class Login extends Component {
   constructor(props) {
@@ -22,7 +25,8 @@ class Login extends Component {
     const { email } = this.state;
     if (email) {
       // we can dispatch start login action here also
-      //   this.props.dispatch(login(email));
+      console.log("hello");
+      this.props.dispatch(login(email));
     }
   };
 
@@ -36,10 +40,18 @@ class Login extends Component {
           onChange={this.handleEmailChange}
           value={this.state.email}
         />
-        <Button type="primary">Log In</Button>
+        <Button type="primary" onClick={this.handleFormSubmit}>
+          <Link to="/Dashboard">Log In </Link>
+        </Button>
       </div>
     );
   }
 }
 
-export default Login;
+function mapStateToProps(state) {
+  return {
+    auth: state.auth,
+  };
+}
+
+export default connect(mapStateToProps)(Login);
