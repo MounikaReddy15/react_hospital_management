@@ -1,0 +1,44 @@
+{
+  "patients": [
+    {
+      "id": 1,
+      "first_name": "Raghu",
+      "last_name": "Ram",
+      "phone": "8888888888",
+      "pincode": "700010",
+      "medicines": "paracetamol",
+      "symptons": "fever",
+      "diagnosis": "general fever"
+    },
+    {
+      "id": 2,
+      "first_name": "Akshay",
+      "last_name": "Sagu",
+      "phone": "6666666666",
+      "pincode": "800010",
+      "medicines": "Cipro, Dolo",
+      "symptons": "cold",
+      "diagnosis": "sinus"
+    },
+    {
+      "id": 3,
+      "first_name": "Navya",
+      "last_name": "Rao",
+      "phone": "5555555555",
+      "pincode": "400010",
+      "medicines": "cofsils",
+      "symptons": "cough",
+      "diagnosis": "common cough"
+    },
+    {
+      "id": 4,
+      "first_name": "Reshma",
+      "last_name": "Sen",
+      "phone": "7362927420",
+      "pincode": "400967",
+      "medicines": "Dart",
+      "symptons": "headache",
+      "diagnosis": "Migraine"
+    }
+  ]
+}

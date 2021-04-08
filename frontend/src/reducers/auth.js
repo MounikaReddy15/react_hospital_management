@@ -1,9 +1,8 @@
 import {
-  LOGIN_FAIL,
-  LOGIN_START,
   LOGIN_SUCCESS,
   LOG_OUT,
   CLEAR_AUTH_STATE,
+  ADD_PATIENT_DETAILS,
 } from "../actions/actionTypes";
 
 const initialAuthState = {
@@ -11,6 +10,7 @@ const initialAuthState = {
   err: null,
   isLoggedin: false,
   inProgress: false,
+  patientDetails: [],
 };
 
 export default function auth(state = initialAuthState, action) {
@@ -32,6 +32,11 @@ export default function auth(state = initialAuthState, action) {
         ...state,
         user: {},
         isLoggedin: false,
+      };
+    case ADD_PATIENT_DETAILS:
+      return {
+        ...state,
+        patientDetails: action,
       };
 
     default:

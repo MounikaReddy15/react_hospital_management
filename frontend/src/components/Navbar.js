@@ -15,11 +15,18 @@ class Navbar extends Component {
           <Header>
             <div className="logo" />
             <Menu theme="dark" mode="horizontal">
-              <Menu.Item key="1">Welcome</Menu.Item>
-              <Menu.Item key="2">
-                <Link to="/">Log in </Link>
-              </Menu.Item>
-              {auth.isLoggedin && <Menu.Item key="3">Log out</Menu.Item>}
+              {!auth.isLoggedin && <Menu.Item key="1">Welcome</Menu.Item>}
+              {!auth.isLoggedin && (
+                <Menu.Item key="2">
+                  <Link to="/">Log in </Link>
+                </Menu.Item>
+              )}
+              {auth.isLoggedin && (
+                <Menu.Item key="3">
+                  <Link to="/AddPatient">Add Patient</Link>
+                </Menu.Item>
+              )}
+              {auth.isLoggedin && <Menu.Item key="4">Log out</Menu.Item>}
             </Menu>
           </Header>
         </Layout>
