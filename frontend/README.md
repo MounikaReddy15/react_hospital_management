@@ -14,6 +14,19 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
+This is a Hospital Management App built using React.
+It has two kind of users:
+1)Doctor and the 2)Patient
+
+Doctor can create patient data and that patient can access his information
+
+Used json-server for mocking the api, which simulates
+the database and accepts the http requests.
+
+To run the json-server: `npm run json-server`
+
+Redux is a state management tool which is used along React to manage the state which in Redux is store and it is available globally for any component to access the data which avoid props drilling.
+
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
