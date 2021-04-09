@@ -1,6 +1,7 @@
 //login action types
 
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const PATIENT_LOGIN = "PATIENT_LOGIN";
 export const LOG_OUT = "LOG_OUT";
 
 export const ADD_PATIENT_DETAILS = "ADD_PATIENT_DETAILS";

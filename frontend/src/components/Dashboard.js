@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import PatientDetails from "./PatientDetails";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -15,17 +16,20 @@ class Dashboard extends Component {
       patients: patientsData,
     });
   }
+
   render() {
     const { patients } = this.state;
     console.log("patient", patients);
     return (
       <div>
         {patients.map((patient) => {
-          console.log("patient", patient);
+          console.log("patienthello", patient);
+
           return (
-            <Link to="/PatientDetails">
-              <h1 key={patient.id}>{patient.first_name}</h1>
-            </Link>
+            <PatientDetails
+              patient={patient}
+              key={`patiend.id`}
+            ></PatientDetails>
           );
         })}
       </div>

@@ -16,12 +16,12 @@ class Navbar extends Component {
             <div className="logo" />
             <Menu theme="dark" mode="horizontal">
               {!auth.isLoggedin && <Menu.Item key="1">Welcome</Menu.Item>}
-              {!auth.isLoggedin && (
+              {auth.isLoggedin && (
                 <Menu.Item key="2">
-                  <Link to="/">Log in </Link>
+                  <Link to="/">Log Out </Link>
                 </Menu.Item>
               )}
-              {auth.isLoggedin && (
+              {auth.isAdmin && (
                 <Menu.Item key="3">
                   <Link to="/AddPatient">Add Patient</Link>
                 </Menu.Item>

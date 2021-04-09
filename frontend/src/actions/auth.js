@@ -3,11 +3,19 @@ import {
   LOG_OUT,
   CLEAR_AUTH_STATE,
   ADD_PATIENT_DETAILS,
+  PATIENT_LOGIN,
 } from "./actionTypes";
 
-export function login(email, password) {
+export function login(email) {
   return {
     type: LOGIN_SUCCESS,
+    user: email,
+  };
+}
+
+export function patientlogin(email) {
+  return {
+    type: PATIENT_LOGIN,
     user: email,
   };
 }

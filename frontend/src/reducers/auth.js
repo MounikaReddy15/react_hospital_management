@@ -3,13 +3,15 @@ import {
   LOG_OUT,
   CLEAR_AUTH_STATE,
   ADD_PATIENT_DETAILS,
+  PATIENT_LOGIN,
 } from "../actions/actionTypes";
 
 const initialAuthState = {
   user: {},
   err: null,
   isLoggedin: false,
-  inProgress: false,
+  isAdmin: false,
+  // inProgress: false,
   patientDetails: [],
 };
 
@@ -21,17 +23,27 @@ export default function auth(state = initialAuthState, action) {
         error: null,
       };
     case LOGIN_SUCCESS:
-      // localStorage.setItem("document", JSON.stringify((isLoggedin: "true")));
+      sessionStorage.setItem("isAdmin", "true");
       return {
         ...state,
         user: action.user,
-        isLoggedin: true,
+        isAdmin: true,
       };
     case LOG_OUT:
+      sessionStorage.setItem("isAdmin", "false");
       return {
         ...state,
         user: {},
         isLoggedin: false,
+        isAdmin: false,
+      };
+    case PATIENT_LOGIN:
+      sessionStorage.setItem("isLoggedin", "true");
+      return {
+        ...state,
+        user: {},
+        isLoggedin: true,
+        isAdmin: false,
       };
     case ADD_PATIENT_DETAILS:
       return {

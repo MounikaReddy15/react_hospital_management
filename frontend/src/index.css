@@ -29,3 +29,13 @@
   float: right;
   margin: 16px 0 16px 24px;
 }
+
+.home-button {
+  /* display: flex;
+  justify-content: space-evenly; */
+  margin: auto;
+  margin-left: 15%;
+  margin-top: 10%;
+  height: 70px;
+  width: 150px;
+}

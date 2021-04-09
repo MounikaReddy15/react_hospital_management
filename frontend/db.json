@@ -39,6 +39,16 @@
       "medicines": "Dart",
       "symptons": "headache",
       "diagnosis": "Migraine"
+    },
+    {
+      "id": 5,
+      "first_name": "niha",
+      "last_name": "kem",
+      "phone": "6382921231",
+      "pincode": "625279",
+      "medicines": "dolo",
+      "symptons": "fever",
+      "diagnosis": "general fever"
     }
   ]
 }
