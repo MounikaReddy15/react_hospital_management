@@ -26,7 +26,12 @@ class Navbar extends Component {
                   <Link to="/AddPatient">Add Patient</Link>
                 </Menu.Item>
               )}
-              {auth.isLoggedin && <Menu.Item key="4">Log out</Menu.Item>}
+              {auth.isAdmin && (
+                <Menu.Item key="4">
+                  <Link to="/Dashboard">Dashboard</Link>
+                </Menu.Item>
+              )}
+              {auth.isLoggedin && <Menu.Item key="5">Log out</Menu.Item>}
             </Menu>
           </Header>
         </Layout>

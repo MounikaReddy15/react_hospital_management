@@ -5,7 +5,7 @@ import Page404 from "./Page404";
 import Login from "./Login";
 import Dashboard from "./Dashboard";
 import AddPatient from "./AddPatient";
-import PatientDetails from "./PatientDetails";
+import ListPatientDetails from "./ListPatientDetails";
 import PatientLogin from "./PatientLogin";
 
 export {
@@ -16,6 +16,6 @@ export {
   Home,
   Dashboard,
   AddPatient,
-  PatientDetails,
+  ListPatientDetails,
   PatientLogin,
 };

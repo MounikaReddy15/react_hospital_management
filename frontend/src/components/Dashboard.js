@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import PatientDetails from "./PatientDetails";
+import PatientDetails from "./ListPatientDetails";
+import { connect } from "react-redux";
+import { fetchPatients } from "../actions/patients";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -10,31 +12,49 @@ class Dashboard extends Component {
     };
   }
   async componentDidMount() {
-    const fetchData = await fetch("http://localhost:7000/patients");
-    const patientsData = await fetchData.json();
-    this.setState({
-      patients: patientsData,
-    });
+    this.props.dispatch(fetchPatients());
   }
 
-  render() {
-    const { patients } = this.state;
-    console.log("patient", patients);
-    return (
-      <div>
-        {patients.map((patient) => {
-          console.log("patienthello", patient);
+  patientDetails = (patient) => {
+    console.log("clicked");
+    console.log("patient", patient);
+    <PatientDetails patient={patient} />;
+  };
 
-          return (
-            <PatientDetails
-              patient={patient}
-              key={`patiend.id`}
-            ></PatientDetails>
-          );
-        })}
-      </div>
+  render() {
+    const { error, loading, patients } = this.props.patients;
+
+    if (error) {
+      return <div>Error! {error.message}</div>;
+    }
+
+    if (loading) {
+      return <div>Loading...</div>;
+    }
+
+    return (
+      <ul>
+        {patients.map((patient) => (
+          // <h2 key={patient.id}>{patient.first_name}</h2>
+          <li key={patient.id}>
+            <Link
+              to={`/patient/${patient.id}`}
+              // onClick={this.patientDetails(patient)}
+            >
+              {patient.first_name}
+            </Link>
+          </li>
+        ))}
+      </ul>
     );
   }
 }
 
-export default Dashboard;
+function mapStateToProps(state) {
+  return {
+    auth: state.auth,
+    patients: state.patients,
+  };
+}
+
+export default connect(mapStateToProps)(Dashboard);

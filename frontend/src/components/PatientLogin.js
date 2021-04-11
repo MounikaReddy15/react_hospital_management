@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Input, Space, Button } from "antd";
 import { patientlogin } from "../actions/auth";
 import { Link } from "react-router-dom";
-import PatientDetails from "./PatientDetails";
+import PatientDetails from "./ListPatientDetails";
 import {
   EyeInvisibleOutlined,
   EyeTwoTone,

@@ -12,7 +12,7 @@ import {
   Login,
   Dashboard,
   AddPatient,
-  PatientDetails,
+  ListPatientDetails,
   PatientLogin,
   Details,
   Home,
@@ -26,10 +26,11 @@ function App() {
         <Switch>
           {/* the compo above these will be common for all */}
           <Route exact path="/" component={Home} />
+          <Route path="/patient/:id" component={ListPatientDetails} />
           <Route exact path="/Login" component={Login} />
           <Route exact path="/Dashboard" component={Dashboard} />
           <Route exact path="/AddPatient" component={AddPatient} />
-          <Route exact path="/PatientDetails" component={PatientDetails} />
+          {/* <Route exact path="/PatientDetails" component={PatientDetails} /> */}
           <Route exact path="/PatientLogin" component={PatientLogin} />
 
           <Route component={Page404} />

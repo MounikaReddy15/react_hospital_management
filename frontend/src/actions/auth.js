@@ -20,6 +20,13 @@ export function patientlogin(email) {
   };
 }
 
+// export function fetchPatients() {
+//   return {
+//     type: GET_PATIENTS,
+//     user: email,
+//   };
+// }
+
 export function addPatient(
   first_name,
   last_name,
