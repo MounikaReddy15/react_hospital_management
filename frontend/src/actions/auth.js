@@ -3,29 +3,15 @@ import {
   LOG_OUT,
   CLEAR_AUTH_STATE,
   ADD_PATIENT_DETAILS,
-  PATIENT_LOGIN,
 } from "./actionTypes";
 
 export function login(email) {
+  localStorage.setItem("isAdmin", "true");
   return {
     type: LOGIN_SUCCESS,
     user: email,
   };
 }
-
-export function patientlogin(email) {
-  return {
-    type: PATIENT_LOGIN,
-    user: email,
-  };
-}
-
-// export function fetchPatients() {
-//   return {
-//     type: GET_PATIENTS,
-//     user: email,
-//   };
-// }
 
 export function addPatient(
   first_name,
@@ -96,6 +82,7 @@ export function addDetails(
 }
 
 export function logoutUser() {
+  localStorage.removeItem("isAdmin");
   return {
     type: LOG_OUT,
   };

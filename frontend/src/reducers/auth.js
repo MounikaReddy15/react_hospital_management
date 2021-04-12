@@ -23,14 +23,12 @@ export default function auth(state = initialAuthState, action) {
         error: null,
       };
     case LOGIN_SUCCESS:
-      sessionStorage.setItem("isAdmin", "true");
       return {
         ...state,
         user: action.user,
         isAdmin: true,
       };
     case LOG_OUT:
-      sessionStorage.setItem("isAdmin", "false");
       return {
         ...state,
         user: {},
@@ -38,7 +36,6 @@ export default function auth(state = initialAuthState, action) {
         isAdmin: false,
       };
     case PATIENT_LOGIN:
-      sessionStorage.setItem("isLoggedin", "true");
       return {
         ...state,
         user: {},

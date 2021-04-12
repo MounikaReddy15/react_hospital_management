@@ -1,25 +1,34 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { listPatientDetails } from "../actions/patients";
-import { Table, Tag, Space } from "antd";
+import {
+  listPatientDetails,
+  // deletePatientDetails,
+  // patientlogin,
+} from "../actions/patients";
+import { Table, Space } from "antd";
 
 class ListPatientDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
       id: props.match.params.id,
+      // name: props.match.query.name,
     };
   }
   async componentDidMount() {
     console.log("id", this.state.id);
-    this.props.dispatch(listPatientDetails(this.state.id));
+    if (this.state.id) {
+      this.props.dispatch(listPatientDetails(this.state.id));
+    }
   }
 
-  deleteDetails = () => {};
+  // deleteDetails = () => {
+  //   this.props.dispatch(deletePatientDetails(this.state.id));
+  // };
 
   render() {
     const { error, loading, patient } = this.props.details;
-
+    console.log("patient", patient);
     if (error) {
       return <div>Error! {error.message}</div>;
     }
@@ -81,7 +90,8 @@ class ListPatientDetails extends Component {
         key: "action",
         render: (text, record) => (
           <Space size="middle">
-            <a onClick={this.deleteDetails()}>Delete</a>
+            {/* <a onClick={this.deleteDetails()}>Delete</a> */}
+            Delete
           </Space>
         ),
       },

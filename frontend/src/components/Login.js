@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Input, Button } from "antd";
 import { UserOutlined } from "@ant-design/icons";
-import { clearAuthState, login } from "../actions/auth";
+import { login } from "../actions/auth";
 import { Link } from "react-router-dom";
 
 class Login extends Component {
@@ -42,6 +42,7 @@ class Login extends Component {
         />
         <Button type="primary" onClick={this.handleFormSubmit}>
           <Link to="/Dashboard">Log In </Link>
+          {/* <a href="localhost:3000/Dashboard">Log In</a> */}
         </Button>
       </div>
     );

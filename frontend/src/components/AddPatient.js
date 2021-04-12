@@ -12,15 +12,6 @@ const layout = {
   },
 };
 
-// const validateMessages = {
-//   types: {
-//     number: "${label} is not a valid number!",
-//   },
-//   number: {
-//     range: "${label} must be between ${min} and ${max}",
-//   },
-// };
-
 class AddPatient extends Component {
   constructor(props) {
     super(props);
@@ -35,7 +26,6 @@ class AddPatient extends Component {
       medicines: "",
     };
   }
-  // htmlId = nextId();
 
   handleInputChange = (field, value) => {
     this.setState({
@@ -45,8 +35,7 @@ class AddPatient extends Component {
 
   handleFormSubmit = (e) => {
     e.preventDefault();
-    // console.log("id", nextId());
-    // const iden = nextId();
+
     this.setState({
       id: nextId(),
     });
@@ -63,8 +52,6 @@ class AddPatient extends Component {
     if (
       (first_name, last_name, phone, pincode, medicines, symptons, diagnosis)
     ) {
-      // we can dispatch start login action here also
-      console.log("hello");
       this.props.dispatch(
         addDetails(
           first_name,
@@ -82,15 +69,7 @@ class AddPatient extends Component {
   render() {
     return (
       <div>
-        {/* <Button type="primary" onClick={this.handleFormSubmit}>
-          Add Patient
-        </Button> */}
-
-        <Form
-          {...layout}
-          name="nest-messages"
-          // validateMessages={validateMessages}
-        >
+        <Form {...layout} name="nest-messages">
           <Form.Item name={["user", "first_name"]} label="First Name">
             <Input
               onChange={(e) =>
@@ -106,17 +85,7 @@ class AddPatient extends Component {
             />
           </Form.Item>
 
-          <Form.Item
-            name={["user", "phone"]}
-            label="Contact Number"
-            // rules={[
-            //   {
-            //     type: "number",
-            //     min: 1,
-            //     max: 99,
-            //   },
-            // ]}
-          >
+          <Form.Item name={["user", "phone"]} label="Contact Number">
             <Input
               onChange={(e) => this.handleInputChange("phone", e.target.value)}
             />
@@ -154,11 +123,7 @@ class AddPatient extends Component {
             wrapperCol={{ ...layout.wrapperCol, offset: 8 }}
             htmlFor={this.htmlId}
           >
-            <Button
-              type="primary"
-              onClick={this.handleFormSubmit}
-              // onClick={(e) => this.handleFormSubmit}
-            >
+            <Button type="primary" onClick={this.handleFormSubmit}>
               Submit
             </Button>
           </Form.Item>

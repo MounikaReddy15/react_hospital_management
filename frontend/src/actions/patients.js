@@ -5,6 +5,7 @@ import {
   PATIENT_DETAILS_REQUEST,
   PATIENT_DETAILS_SUCCESS,
   PATIENT_DETAILS_FAIL,
+  //   DELETE_PATIENT_DETAILS,
 } from "./actionTypes";
 
 export const fetchPatientsBegin = () => ({
@@ -63,3 +64,36 @@ export function listPatientDetails(id) {
       .catch((error) => dispatch(patientDetailsFail(error)));
   };
 }
+
+export function patientlogin(username) {
+  console.log("namexxxx", username);
+  return (dispatch) => {
+    dispatch(patientDetailsRequest());
+    return fetch(`http://localhost:7000/patients?q=${username}`)
+      .then((res) => res.json())
+      .then((json) => {
+        console.log("json", json);
+        dispatch(patientDetailsSuccess(json));
+        return json;
+      })
+      .catch((error) => dispatch(patientDetailsFail(error)));
+  };
+}
+
+// export function deletePatient() {
+//   return {
+//     type: DELETE_PATIENT_DETAILS,
+//     payload: "Patient Deleted",
+//   };
+// }
+
+// export function deletePatientDetails(id) {
+//   return (dispatch) => {
+//     dispatch(deletePatient());
+//     const url = `http://localhost:7000/patients/${id}`;
+
+//     fetch(url, {
+//       method: "DELETE",
+//     });
+//   };
+// }

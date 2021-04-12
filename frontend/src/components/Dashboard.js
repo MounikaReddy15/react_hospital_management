@@ -8,11 +8,14 @@ class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      patients: [],
+      age: 0,
     };
   }
   async componentDidMount() {
     this.props.dispatch(fetchPatients());
+    // this.setState = {
+    //   age: this.state.age + 1,
+    // };
   }
 
   patientDetails = (patient) => {

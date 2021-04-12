@@ -1,10 +1,5 @@
 import "../App.css";
-import {
-  BrowserRouter as Router,
-  Redirect,
-  Route,
-  Switch,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import {
   Navbar,
@@ -14,7 +9,6 @@ import {
   AddPatient,
   ListPatientDetails,
   PatientLogin,
-  Details,
   Home,
 } from "./";
 
@@ -24,13 +18,14 @@ function App() {
       <div>
         <Navbar />
         <Switch>
-          {/* the compo above these will be common for all */}
           <Route exact path="/" component={Home} />
+          <Route path="/patients?q=username" component={ListPatientDetails} />
           <Route path="/patient/:id" component={ListPatientDetails} />
+
           <Route exact path="/Login" component={Login} />
           <Route exact path="/Dashboard" component={Dashboard} />
           <Route exact path="/AddPatient" component={AddPatient} />
-          {/* <Route exact path="/PatientDetails" component={PatientDetails} /> */}
+
           <Route exact path="/PatientLogin" component={PatientLogin} />
 
           <Route component={Page404} />

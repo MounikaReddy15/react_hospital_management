@@ -39,3 +39,9 @@
   height: 70px;
   width: 150px;
 }
+
+.search-bar {
+  margin-left: 420px;
+  width: 250px;
+  margin-top: 15px;
+}

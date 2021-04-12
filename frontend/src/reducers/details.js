@@ -1,4 +1,5 @@
 import {
+  //   DELETE_PATIENT_DETAILS,
   PATIENT_DETAILS_FAIL,
   PATIENT_DETAILS_REQUEST,
   PATIENT_DETAILS_SUCCESS,
@@ -44,6 +45,11 @@ export default function details(state = initialPatientState, action) {
         error: action.payload.error,
         patient: {},
       };
+    // case DELETE_PATIENT_DETAILS: {
+    //   return {
+    //     message: action.payload,
+    //   };
+    // }
 
     default:
       // ALWAYS have a default case in a reducer

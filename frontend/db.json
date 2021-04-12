@@ -31,16 +31,6 @@
       "diagnosis": "common cough"
     },
     {
-      "id": 4,
-      "first_name": "Reshma",
-      "last_name": "Sen",
-      "phone": "7362927420",
-      "pincode": "400967",
-      "medicines": "Dart",
-      "symptons": "headache",
-      "diagnosis": "Migraine"
-    },
-    {
       "id": 5,
       "first_name": "niha",
       "last_name": "kem",
@@ -49,6 +39,16 @@
       "medicines": "dolo",
       "symptons": "fever",
       "diagnosis": "general fever"
+    },
+    {
+      "id": 6,
+      "first_name": "Nina",
+      "last_name": "Ray",
+      "phone": "7529172191",
+      "pincode": "800787",
+      "medicines": "chloroquine",
+      "symptons": "high fever",
+      "diagnosis": "malaria"
     }
   ]
 }

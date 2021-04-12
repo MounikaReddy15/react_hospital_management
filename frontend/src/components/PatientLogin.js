@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Input, Space, Button } from "antd";
-import { patientlogin } from "../actions/auth";
+import { Input, Button } from "antd";
+import { patientlogin } from "../actions/patients";
 import { Link } from "react-router-dom";
-import PatientDetails from "./ListPatientDetails";
+// import ListPatientDetails from "./ListPatientDetails";
 import {
   EyeInvisibleOutlined,
   EyeTwoTone,
@@ -14,14 +14,14 @@ class PatientLogin extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
+      username: "",
       password: "",
     };
   }
 
-  handleEmailChange = (e) => {
+  handleNameChange = (e) => {
     this.setState({
-      email: e.target.value,
+      username: e.target.value,
     });
   };
 
@@ -35,20 +35,22 @@ class PatientLogin extends Component {
 
   handleFormSubmit = (e) => {
     e.preventDefault();
-    const { email, password } = this.state;
-    if (email && password) {
-      this.props.dispatch(patientlogin(email));
+
+    const { username } = this.state;
+    if (username) {
+      this.props.dispatch(patientlogin(username));
     }
   };
 
   render() {
+    const { username } = this.state;
     return (
       <div>
         <Input
           size="large"
-          placeholder="Enter Email"
+          placeholder="Enter Username"
           prefix={<UserOutlined />}
-          onChange={this.handleEmailChange}
+          onChange={this.handleNameChange}
           value={this.state.email}
         />
 
@@ -62,7 +64,8 @@ class PatientLogin extends Component {
         />
 
         <Button type="primary" onClick={this.handleFormSubmit}>
-          <Link to="/PatientDetails">Log In </Link>
+          <Link to={`/patients?q=${username}`}>Log In </Link>
+          {/* Log In */}
         </Button>
       </div>
     );
